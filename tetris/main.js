@@ -27,7 +27,7 @@ function createBoard() {
 
 // 4. pieces
 const piece = {
-    position: { x: 5, y: 0 },
+    position: { x: 4, y: 0 },
     shape: [
     ]
     
@@ -61,6 +61,9 @@ function update() {
     //se selecciona una pieza aleatoria
     if (!piece.shape.length) {
         piece.shape = pieces[Math.floor(Math.random() * pieces.length)]
+        //se reinicia la posicion de la pieza
+        piece.position.y = 0
+        piece.position.x = 3.5
     }
     draw()
     window.requestAnimationFrame(update)
@@ -176,6 +179,7 @@ function merge() {
         })
     })
     piece.position.y = 0
+    piece.position.x = 4
 }
 
 // si la fila esta llena, se debe eliminar la fila
